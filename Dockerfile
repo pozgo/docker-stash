@@ -4,13 +4,16 @@ MAINTAINER Przemyslaw Ozgo <linux@ozgo.info>
 RUN yum clean all && \
 yum update -y && \
 yum install -y --nogpgcheck tar wget mariadb java-1.7.0-openjdk mariadb-server git && \
-mkdir /data
+mkdir /data 
 # Remove pre-installed database
 RUN rm -rf /var/lib/mysql/*
 # Create new Mysql DB setup
 RUN mysql_install_db --user=mysql --ldata=/var/lib/mysql/
 
 ADD install /data/install/
+ADD config	/data/config
+RUN mv /data/config/my.cnf /etc/my.cnf
+
 RUN cd /data/install &&\
 ./mysql.sh && \
 ./install.sh 
