@@ -12,7 +12,9 @@ RUN mysql_install_db --user=mysql --ldata=/var/lib/mysql/
 
 ADD install /data/install/
 RUN cd /data/install &&\
-./mysql.sh
+./mysql.sh && \
+./install.sh 
+
 
 RUN mv /data/install/mysql-connector-java-5.1.31-bin.jar /opt/atlassian/stash/3.2.0/atlassian-stash/WEB-INF/lib/mysql-connector-java-5.1.31-bin.jar
 
