@@ -16,7 +16,7 @@ RUN cd /data/install &&\
 ./install.sh 
 
 
-RUN mv /data/install/mysql-connector-java-5.1.31-bin.jar /opt/atlassian/stash/3.2.0/atlassian-stash/WEB-INF/lib/mysql-connector-java-5.1.31-bin.jar
+RUN mv /data/install/mysql-connector-java-5.1.31-bin.jar /usr/local/Stash/atlassian-stash/WEB-INF/lib/mysql-connector-java-5.1.31-bin.jar
 
 ADD supervisord.conf /etc/supervisord.d/confluence .conf
 EXPOSE 7990
