@@ -9,8 +9,6 @@ RUN rm -rf /var/lib/mysql/*
 RUN mysql_install_db --user=mysql --ldata=/var/lib/mysql/
 
 ADD install /data/install/
-ADD config	/data/config/
-#RUN mv /data/config/my.cnf /etc/my.cnf
 
 RUN cd /data/install &&\
 ./mysql.sh && \
