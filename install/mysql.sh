@@ -6,10 +6,9 @@ sleep 10
 mysqladmin -u root password password
 mysqladmin -u root -ppassword reload
 
-echo 
+echo "CREATE DATABASE stash CHARACTER SET utf8 COLLATE utf8_bin;" | mysql -u root -ppassword
+echo "Stash Database created"
 
-mysqladmin -u root -ppassword create stash
-echo "ALTER DATABASE stash charset=utf8;" | mysql -u root -ppassword
 echo "GRANT ALL ON stash.* TO stashuser@'localhost' IDENTIFIED BY 'password'; flush privileges; " | mysql -u root -ppassword
 sleep 10 
 
